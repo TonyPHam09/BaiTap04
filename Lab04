@@ -1,0 +1,86 @@
+package baitaplab4;
+
+import java.util.Scanner;
+
+public class circle {
+    public static double radius, pi = 3.14 ; String color; 
+     public void circle(double radius, String color) {
+        this.radius = radius;
+        this.color = color;
+     }
+     public circle() {}
+     public double getRadius(){
+        return this.radius;
+     }
+     public void setRadius(){
+        Scanner rad = new Scanner(System.in);
+        System.out.printf("nhap ban kinh: ");
+        this.radius = rad.nextDouble();
+     }
+     public String getColor(){
+        return this.color;
+     }
+     public void setColor(){
+        Scanner col = new Scanner(System.in);
+        System.out.printf("nhap mau sac: ");
+        this.color = col.nextLine();
+     }
+     public double getArea(){
+      double S = this.radius * this.radius * pi;
+      System.out.println("dien tich: " + S);
+      return S;
+     }
+     public String toString(){
+      String result = radius + " and " + color;
+      System.out.println("thanh pham: " + result);
+      return result;
+     }
+}
+
+
+
+
+
+package baitaplab4;
+import java.util.Scanner;
+
+public class cylinder extends circle {
+        public double height;
+        public void cylinder(double radius, String color, double height){        
+            this.height = height;
+        }
+        public cylinder() {}
+        public double getHeight() {
+            return height;
+        }
+        public void setHeight() {
+            Scanner h = new Scanner(System.in);
+            System.out.printf("nhap chieu cao: ");
+            height = h.nextDouble();
+        }
+        public double getVolume(){
+            double V = super.getRadius() * super.getRadius() * height * pi;
+            System.out.println("the tich: " + V);
+            return V;
+        }
+}
+
+
+
+
+
+package baitaplab4;
+
+public class maincircle {
+    public static void main(String[] args) {
+        circle circle = new circle();
+        cylinder cylinder = new cylinder();
+        circle.setRadius();
+        circle.setColor();
+        circle.toString();
+        circle.getArea();
+        System.out.println("===========================");
+        cylinder.setHeight();
+        cylinder.getVolume();
+    }
+}
